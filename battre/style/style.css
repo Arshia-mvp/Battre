@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.cell{
+    width: 400px;
+    height: 100px;
+    margin: 150px auto;
+    border-radius: 15px;
+    border: 1px solid gray;
+    position: relative;
+}
+.cell>*,
+        .cell::before,
+        .cell::after{
+            content: '';
+            position: absolute;
+        }
+        .cell::before{
+            width: 10px;
+            height: 65px;
+            border-radius: 0 5px 5px 0;
+            border: 1px solid gray;
+            top: 17.5px;
+            right: -12px;
+        }
+        .cell>div{
+            width: 2px;
+            height: 100%;background: rgb(255, 255, 255);
+            top: 0;
+        }
+        .cell::after{
+            width: 25px;
+            height: 100%;
+            background: red;
+            top: 0;left: 0;
+            z-index: -1px;
+            border-radius: 15px 0 0 15px;
+            transition: 1s;
+            animation-name: box-anime;
+            animation-duration: 500s;
+            animation-delay: 3s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes box-anime{
+            15%{
+                background-color: green;
+                width: 100%;
+                border-radius: 15px;
+            }
+        }
